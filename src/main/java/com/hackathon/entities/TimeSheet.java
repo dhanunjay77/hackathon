@@ -1,7 +1,7 @@
 package com.hackathon.entities;
 
 
-import com.test.demo.constants.Status;
+import com.hackathon.constants.Status;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

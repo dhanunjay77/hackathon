@@ -14,8 +14,8 @@ import java.util.UUID;
 @Data
 public class TimeSheetEntry {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID entryId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int entryId;
 
     private int contractorId;
     private int projectId;
