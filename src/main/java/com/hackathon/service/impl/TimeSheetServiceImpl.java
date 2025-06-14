@@ -1,10 +1,13 @@
 package com.hackathon.service.impl;
 
 import com.hackathon.Repository.TimeSheetRepository;
+import com.hackathon.Repository.TimeSheetEntryRepository;
 import com.hackathon.constants.Status;
 import com.hackathon.dto.ManagerTimeSheetResponseDto;
 import com.hackathon.dto.TimeSheetSubmitDto;
+import com.hackathon.entities.Project;
 import com.hackathon.entities.TimeSheet;
+import com.hackathon.entities.TimeSheetEntry;
 import com.hackathon.exception.TimeSheetNotFoundException;
 import com.hackathon.service.TimeSheetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +15,8 @@ import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Optional;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Service implementation for handling timesheet operations.
