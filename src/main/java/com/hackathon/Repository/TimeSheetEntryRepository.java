@@ -1,11 +1,10 @@
 package com.hackathon.Repository;
 
+import com.hackathon.entities.TimeSheetEntry;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.hackathon.entities.Contractor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ContractorRepository extends JpaRepository<Contractor, Integer> {
+public interface TimeSheetEntryRepository extends JpaRepository<TimeSheetEntry, Integer> {
 
 }
