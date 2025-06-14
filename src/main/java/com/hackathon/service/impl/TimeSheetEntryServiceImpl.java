@@ -4,6 +4,9 @@ import com.hackathon.Repository.TimeSheetEntryRepository;
 import com.hackathon.dto.TimeSheetEntryDto;
 import com.hackathon.entities.TimeSheetEntry;
 import com.hackathon.service.TimeSheetEntryService;
+
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +17,14 @@ public class TimeSheetEntryServiceImpl implements TimeSheetEntryService {
     private TimeSheetEntryRepository timeSheetEntryRepository;
 
     @Override
-    public TimeSheetEntry addTimeSheetEntry(TimeSheetEntry entry) {
-        return timeSheetEntryRepository.save(entry);
+    public TimeSheetEntry addTimeSheetEntry(TimeSheetEntryDto dtoEntry) {
+    	TimeSheetEntry entry = new TimeSheetEntry();
+        entry.setContractorId(dtoEntry.getContractorId());
+        entry.setProjectId(dtoEntry.getProjectId());
+        entry.setActivityId(dtoEntry.getActivityId());
+        entry.setHoursWorked(dtoEntry.getHoursWorked());
+        entry.setComments(dtoEntry.getComments());
+        entry.setDate(LocalDateTime.now());
+    	return timeSheetEntryRepository.save(entry);
     }
 }

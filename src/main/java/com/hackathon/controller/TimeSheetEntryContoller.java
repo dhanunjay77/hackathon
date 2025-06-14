@@ -25,14 +25,8 @@ public class TimeSheetEntryContoller {
 
     @PostMapping("/add")
     public ResponseEntity<TimeSheetEntry> add(@Valid @RequestBody TimeSheetEntryDto dto) {
-        TimeSheetEntry entry = new TimeSheetEntry();
-        entry.setContractorId(dto.getContractorId());
-        entry.setProjectId(dto.getProjectId());
-        entry.setActivityId(dto.getActivityId());
-        entry.setHoursWorked(dto.getHoursWorked());
-        entry.setComments(dto.getComments());
-        entry.setDate(LocalDateTime.now());
-        TimeSheetEntry savedEntry = timeSheetEntryService.addTimeSheetEntry(entry);
+        
+        TimeSheetEntry savedEntry = timeSheetEntryService.addTimeSheetEntry(dto);
         return ResponseEntity.ok(savedEntry);
     }
 }
