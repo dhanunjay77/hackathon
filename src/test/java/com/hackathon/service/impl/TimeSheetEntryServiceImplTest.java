@@ -34,7 +34,7 @@ class TimeSheetEntryServiceImplTest {
     @BeforeEach
     void setUp() {
         validDto = new TimeSheetEntryDto();
-        validDto.setContractorId(1);
+//        validDto.setContractorId(1);
         validDto.setProjectId(2);
         validDto.setActivityId(3);
         validDto.setHoursWorked(8.0);
@@ -42,7 +42,7 @@ class TimeSheetEntryServiceImplTest {
 
         savedEntry = new TimeSheetEntry();
         savedEntry.setEntryId(100);
-        savedEntry.setContractorId(1);
+//        savedEntry.setContractorId(1);
         savedEntry.setProjectId(2);
         savedEntry.setActivityId(3);
         savedEntry.setHoursWorked(8.0);

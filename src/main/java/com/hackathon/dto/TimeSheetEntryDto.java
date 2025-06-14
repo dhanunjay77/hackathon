@@ -11,7 +11,7 @@ import jakarta.validation.constraints.Size;
 @Data
 public class TimeSheetEntryDto {
     @Min(1)
-    private Contractor contractorId;
+    private int contractorId;
 
     @Min(1)
     private int projectId;

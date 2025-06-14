@@ -23,8 +23,7 @@ public class TimeSheetEntry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int entryId;
 
-    @ManyToOne
-    private Contractor contractorId;
+    private int contractorId;
     private int projectId;
     private int activityId;
     private LocalDateTime date;
