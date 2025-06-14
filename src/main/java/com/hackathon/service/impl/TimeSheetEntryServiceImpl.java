@@ -10,27 +10,47 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+/**
+ * Service implementation for handling timesheet entry operations.
+ */
 @Service
 public class TimeSheetEntryServiceImpl implements TimeSheetEntryService {
+    private static final Logger logger = LoggerFactory.getLogger(TimeSheetEntryServiceImpl.class);
 
     @Autowired
     private TimeSheetEntryRepository timeSheetEntryRepository;
 
+    /**
+     * Adds a new timesheet entry for a contractor.
+     * @param dtoEntry the timesheet entry data
+     * @return the saved TimeSheetEntry entity
+     */
     @Override
     public TimeSheetEntry addTimeSheetEntry(TimeSheetEntryDto dtoEntry) {
-    	TimeSheetEntry entry = new TimeSheetEntry();
+        logger.info("Adding timesheet entry for contractorId={}, projectId={}, activityId={}",
+                dtoEntry.getContractorId(), dtoEntry.getProjectId(), dtoEntry.getActivityId());
+        TimeSheetEntry entry = new TimeSheetEntry();
         entry.setContractorId(dtoEntry.getContractorId());
         entry.setProjectId(dtoEntry.getProjectId());
         entry.setActivityId(dtoEntry.getActivityId());
         entry.setHoursWorked(dtoEntry.getHoursWorked());
         entry.setComments(dtoEntry.getComments());
         entry.setDate(LocalDateTime.now());
-    	return timeSheetEntryRepository.save(entry);
+        TimeSheetEntry saved = timeSheetEntryRepository.save(entry);
+        logger.info("Timesheet entry added with id={}", saved.getEntryId());
+        return saved;
     }
 
-	@Override
-	public List<TimeSheetEntry> getTimeSheetEntries() {
-		return timeSheetEntryRepository.findAll();
-	}
+    /**
+     * Retrieves all timesheet entries.
+     * @return list of TimeSheetEntry entities
+     */
+    @Override
+    public List<TimeSheetEntry> getTimeSheetEntries() {
+        logger.info("Fetching all timesheet entries");
+        return timeSheetEntryRepository.findAll();
+    }
 }
