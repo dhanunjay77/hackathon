@@ -3,6 +3,8 @@ package com.hackathon.entities;
 
 import com.hackathon.constants.Status;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,6 +23,7 @@ public class TimeSheet {
 
     private LocalDateTime weekStartTime;
     private int contractorId;
+    @Enumerated(EnumType.STRING)
     private Status status;
     private String managerComments;
 

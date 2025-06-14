@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.WebRequest;
 
 import com.hackathon.exception.ApiErrorResponse;
+import com.hackathon.exception.TimeSheetNotFoundException;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -42,5 +43,17 @@ public class GlobalExceptionHandler {
                 request.getRequestURI()
         );
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(TimeSheetNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<ApiErrorResponse> handleTimeSheetNotFoundException(TimeSheetNotFoundException ex, HttpServletRequest request) {
+        ApiErrorResponse response = new ApiErrorResponse(
+                HttpStatus.NOT_FOUND.value(),
+                "Not Found",
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 }
