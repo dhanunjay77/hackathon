@@ -1,6 +1,7 @@
 package com.hackathon.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,6 +14,7 @@ import java.util.UUID;
 
 @Entity
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TimeSheetEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

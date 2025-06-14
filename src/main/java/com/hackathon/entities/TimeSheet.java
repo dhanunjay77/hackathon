@@ -1,6 +1,7 @@
 package com.hackathon.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.hackathon.constants.Status;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,6 +17,7 @@ import java.util.*;
 
 @Entity
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TimeSheet {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
