@@ -41,7 +41,7 @@ public class TimeSheetEntryContoller {
         logger.info("Received add timesheet entry request: contractorId={}, projectId={}, activityId={}",
                 dto.getContractorId(), dto.getProjectId(), dto.getActivityId());
         TimeSheetEntry savedEntry = timeSheetEntryService.addTimeSheetEntry(dto);
-        logger.info("Timesheet entry added successfully with id={}", savedEntry.getId());
+        logger.info("Timesheet entry added successfully with id={}", savedEntry.getEntryId());
         return ResponseEntity.ok(savedEntry);
     }
 

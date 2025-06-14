@@ -14,6 +14,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/timesheetentry/**").permitAll()
                     .requestMatchers("/api/timesheet/**").permitAll()
+                    .requestMatchers("/swagger-ui/**").permitAll()
                 .anyRequest().authenticated()
             );
         return http.build();

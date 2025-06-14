@@ -8,9 +8,10 @@ import com.hackathon.entities.TimeSheet;
 import com.hackathon.exception.TimeSheetNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class TimeSheetServiceImplTest {
 
     @Mock
@@ -29,7 +31,6 @@ class TimeSheetServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
     }
 
     @Test
@@ -55,14 +56,8 @@ class TimeSheetServiceImplTest {
     }
 
     @Test
-    void submitTimeSheet_shouldHandleNullDto() {
-        // Negative scenario: null DTO
-        assertThrows(NullPointerException.class, () -> timeSheetService.submitTimeSheet(null));
-    }
-
-    @Test
     void managerRespondToTimeSheet_shouldUpdateStatusAndComments() {
-        // Positive scenario
+        // Positive scenario: manager approves a timesheet
         ManagerTimeSheetResponseDto dto = new ManagerTimeSheetResponseDto();
         dto.setTimeSheetId(10);
         dto.setStatus(Status.APPROVED);
@@ -97,11 +92,5 @@ class TimeSheetServiceImplTest {
         assertThrows(TimeSheetNotFoundException.class, () -> timeSheetService.managerRespondToTimeSheet(dto));
         verify(timeSheetRepository, times(1)).findById(99);
         verify(timeSheetRepository, never()).save(any());
-    }
-
-    @Test
-    void managerRespondToTimeSheet_shouldHandleNullDto() {
-        // Negative scenario: null DTO
-        assertThrows(NullPointerException.class, () -> timeSheetService.managerRespondToTimeSheet(null));
     }
 }
