@@ -34,6 +34,7 @@ public class TimeSheetEntryServiceImpl implements TimeSheetEntryService {
                 dtoEntry.getContractorId(), dtoEntry.getProjectId(), dtoEntry.getActivityId());
         TimeSheetEntry entry = new TimeSheetEntry();
         entry.setContractorId(dtoEntry.getContractorId());
+        dtoEntry.getContractorId();
         entry.setProjectId(dtoEntry.getProjectId());
         entry.setActivityId(dtoEntry.getActivityId());
         entry.setHoursWorked(dtoEntry.getHoursWorked());

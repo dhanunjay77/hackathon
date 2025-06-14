@@ -19,6 +19,8 @@ public class Contractor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int contractorId;
 	
+	@OneToMany(mappedBy = "contractorId")
+	private List<TimeSheetEntry> timeSheetEntries;
 	private String name;
 	
 	@OneToMany(mappedBy = "contractor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -2,11 +2,14 @@ package com.hackathon.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.hackathon.dto.ContractorDto;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -20,7 +23,8 @@ public class TimeSheetEntry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int entryId;
 
-    private int contractorId;
+    @ManyToOne
+    private Contractor contractorId;
     private int projectId;
     private int activityId;
     private LocalDateTime date;
