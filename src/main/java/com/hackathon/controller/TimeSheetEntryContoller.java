@@ -18,8 +18,6 @@ import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/timesheetentry")
-@RequiredArgsConstructor
-@PreAuthorize("hasRole('TIMESHEETEntry')")
 public class TimeSheetEntryContoller {
 
     @Autowired
