@@ -6,6 +6,7 @@ import com.hackathon.entities.TimeSheetEntry;
 import com.hackathon.service.TimeSheetEntryService;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,4 +28,9 @@ public class TimeSheetEntryServiceImpl implements TimeSheetEntryService {
         entry.setDate(LocalDateTime.now());
     	return timeSheetEntryRepository.save(entry);
     }
+
+	@Override
+	public List<TimeSheetEntry> getTimeSheetEntries() {
+		return timeSheetEntryRepository.findAll();
+	}
 }
