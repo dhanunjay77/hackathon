@@ -1,0 +1,10 @@
+package com.hackathon.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.hackathon.Repository.ContractorRepository;
+
+public interface ContractorService {
+
+	
+}

@@ -1,0 +1,21 @@
+package com.hackathon.entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import lombok.Data;
+
+@Entity
+@Data
+public class Project {
+
+	private int projectCode;
+	
+	private String projectName;
+	
+	private String client;
+	
+	private Status status;
+	
+	@ManyToOne
+	private Contractor contractor;
+}

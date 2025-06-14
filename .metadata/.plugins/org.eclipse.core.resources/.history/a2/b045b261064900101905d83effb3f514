@@ -1,0 +1,6 @@
+package com.hackathon.service;
+
+public interface ContractorService {
+
+//	public List<>viewAssignedProjects();
+}
