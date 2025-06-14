@@ -1,5 +1,6 @@
 package com.hackathon.entities;
 
+import com.hackathon.constants.ProjectStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

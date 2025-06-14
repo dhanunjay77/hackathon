@@ -1,6 +1,6 @@
 package com.hackathon.dto;
 
-import com.hackathon.entities.ProjectStatus;
+import com.hackathon.constants.ProjectStatus;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.hackathon.entities;
+package com.hackathon.constants;
 
 public enum ProjectStatus {
 
